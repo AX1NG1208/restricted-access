@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restricted Access | 访问限制</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入自定义 CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen w-full flex items-center justify-center overflow-hidden relative bg-black">
+
+    <!-- 背景遮罩与噪点效果 -->
+    <div class="absolute inset-0 bg-red-900/20 z-0 mix-blend-overlay"></div>
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 z-0 animate-pulse-slow"></div>
+
+    <!-- 主容器 -->
+    <div class="relative z-10 w-full max-w-lg p-6">
+        <div class="warning-panel rounded-sm p-10 text-center border-l-4 border-r-4 border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.3)]">
+            
+            <!-- 警告图标 -->
+            <div class="mb-8 flex justify-center">
+                <div class="w-24 h-24 bg-black border-2 border-red-600 rounded-full flex items-center justify-center animate-shake shadow-[0_0_20px_rgba(220,38,38,0.6)]">
+                    <i class="fas fa-biohazard text-5xl text-red-600 drop-shadow-[0_0_10px_rgba(220,38,38,0.8)]"></i>
+                </div>
+            </div>
+
+            <!-- 标题 -->
+            <h1 class="text-4xl font-black mb-4 tracking-widest text-red-500 uppercase glitch-text" data-text="WARNING">WARNING</h1>
+            <h2 class="text-xl font-bold mb-8 text-gray-300 tracking-wide border-b border-red-900/50 pb-4 inline-block">
+                严重警告 / RESTRICTED AREA
+            </h2>
+
+            <!-- 提示文本 -->
+            <div class="bg-black/50 p-6 rounded border border-red-900/30 mb-8">
+                <p class="text-lg mb-4 leading-relaxed text-gray-200 font-mono">
+                    <span class="text-red-500 font-bold">[SYSTEM ALERT]</span><br>
+                    This content is strictly prohibited for minors.<br>
+                    本区域内容仅限成年人访问，未成年人严禁入内。
+                </p>
+                <p class="text-sm text-red-400/80 font-mono mt-4">
+                    VIOLATORS WILL BE PROSECUTED.<br>
+                    违规者将承担法律责任。
+                </p>
+            </div>
+
+            <!-- 按钮组 -->
+            <div class="space-y-4">
+                <!-- 已满18岁按钮 -->
+                <button id="btn-enter" class="btn-oppressive w-full py-3 px-6 bg-red-700 hover:bg-red-600 text-white rounded-none font-bold text-lg tracking-widest uppercase shadow-[0_5px_0_#7f1d1d] active:shadow-none active:translate-y-[5px] transition-all flex items-center justify-center gap-3 group">
+                    <i class="fas fa-unlock-alt group-hover:text-white transition-colors"></i>
+                    I am 18+ / 我已成年
+                </button>
+
+                <!-- 未满18岁按钮 -->
+                <button id="btn-exit" class="btn-oppressive w-full py-3 px-6 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-none font-bold text-lg tracking-widest uppercase shadow-[0_5px_0_#1f2937] active:shadow-none active:translate-y-[5px] transition-all flex items-center justify-center gap-3 group">
+                    <i class="fas fa-ban group-hover:text-red-500 transition-colors"></i>
+                    Exit / 退出
+                </button>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="mt-10 text-[10px] text-gray-600 font-mono uppercase tracking-widest">
+                Secure Connection // ID: <span id="session-id">LOADING...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入自定义 JS -->
+    <script src="script.js"></script>
+</body>
+</html>
